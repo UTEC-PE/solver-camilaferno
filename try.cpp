@@ -40,21 +40,23 @@ int buscarKing(string thystring){
 }
 
 node* constructTree(string thystring){
-	node* root = nullptr;
-	root -> left = nodeleft;
-	root -> right = noderight;
-	char currentKing=thystring[buscarKing(thystring)];
+	node* root=nullptr;
+
+	int posOfKing=buscarKing(thystring);
+
 
 	if(!root){
-		root = newNode(currentKing);
+		root = newNode(string(1,thystring[posOfKing]));
 	}
-	node* noderight = newNode(thystring.substr(thystring.find(currentKing)) + 1);
-	cout << root->data;
+	root->right = newNode(thystring.substr(posOfKing+1));
+	root->left = newNode(thystring.substr(0, posOfKing));
+	//root -> right = rootright;
+	cout << root->left->data;
 }
 
 
 int main(int argc, char const *argv[]) {
-	string a="(3*3)4/5";
+	string a="(3*3)^4/5";
 	buscarKing(a);
 	constructTree(a);
 
