@@ -13,13 +13,13 @@ map<char, int> hierarchy = {
 	{'$',6},
 };
 
-int buscarKing(string thystring){
+int buscarKing(string thystring){ 
 	int count=0;
 	char myking='$';
 	int posOfKing=0;
 
 	for(int i=0; i<thystring.length(); i++){
-		char current= thystring[i];
+		char current= thystring[i]; // Current? Debería buscar operadores
 
 		if(thystring[i]=='('){
 			count+=1;
@@ -39,10 +39,10 @@ int buscarKing(string thystring){
 	return posOfKing;
 }
 
-node* constructTree(string thystring){
+node* constructTree(string thystring){ // Esto no va a construir el árbol
 	node* root=nullptr;
 
-	int posOfKing=buscarKing(thystring);
+	int posOfKing=buscarKing(thystring); // Qué es king?
 
 
 	if(!root){
